@@ -1,9 +1,17 @@
 JdVWeb
 ======
 
-Implémentation web du jeu de la vie.
+Web implementation of the famous _Game Of Life_.
 
-I - Requirements
+I - Who
+-------
+
+This app comes from Lucas Bourneuf and Mathieu Gaborit.
+
+Let's fork us at [GitHub](https://github.com/Matael/jdvweb)
+
+
+II - Requirements
 ----------------
 
 This app is based on BottlePy. Please download and install it [here](http://bottlepy.org/docs/dev/tutorial.html#installation)
