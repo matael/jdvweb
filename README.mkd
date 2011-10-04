@@ -1,0 +1,4 @@
+JdVWeb
+======
+
+Implémentation web du jeu de la vie.
