@@ -2,3 +2,8 @@ JdVWeb
 ======
 
 Implémentation web du jeu de la vie.
+
+I - Requirements
+----------------
+
+This app is based on BottlePy. Please download and install it [here](http://bottlepy.org/docs/dev/tutorial.html#installation)
