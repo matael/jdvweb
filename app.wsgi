@@ -26,11 +26,21 @@ from markdown import markdown
 from bottle import\
         Bottle,\
         run,\
-        route
+        route,\
+        template
 
 os.chdir(os.path.dirname(__file__))
 
 application = Bottle()
+
+@application.route('/')
+def echo_file():
+    """ print file to html output """
+    file = open("matrice.jdv", 'r')
+    lines = [line.rstrip() for line in file.readlines()]
+    file.close()
+    output = template('matrice.tpl', lines=lines)
+    return output
 
 @application.route("/readme")
 def about():
