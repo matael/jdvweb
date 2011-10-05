@@ -49,9 +49,9 @@ def about():
     return text
 
 
-#def main():
-#    run(application, host='localhost', port=8080)
-#    return 0
-#
-#if __name__ == '__main__': main()
+def main():
+    run(application, host='localhost', port=8080)
+    return 0
+
+if __name__ == '__main__': main()
 
