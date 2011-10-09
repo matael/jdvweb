@@ -27,7 +27,11 @@ from bottle import\
         Bottle,\
         run,\
         route,\
-        template
+        template,\
+        static_file,\
+        error,\
+        abort,\
+        debug
 
 os.chdir(os.path.dirname(__file__))
 
