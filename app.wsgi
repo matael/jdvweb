@@ -61,6 +61,11 @@ def about():
     text = markdown(readme_file.read())
     return text
 
+@application.error(404)
+def mistake_404(code):
+    """ serve all 404 errors """
+    return template("404.tpl")
+
 
 def main():
     run(application, host='localhost', port=8080)
