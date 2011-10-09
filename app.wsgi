@@ -33,6 +33,10 @@ from bottle import\
         abort,\
         debug
 
+# Remember to use trailing slash
+STATIC_FILES = "/srv/simplelife/static/"
+MATRIX_FILE = '/srv/simplelife/Matrice.JDV'
+
 os.chdir(os.path.dirname(__file__))
 
 application = Bottle()
@@ -40,7 +44,7 @@ application = Bottle()
 @application.route('/')
 def echo_file():
     """ print file to html output """
-    file = open("matrice.jdv", 'r')
+    file = open(MATRIX_FILE, 'r')
     lines = [line.rstrip() for line in file.readlines()]
     file.close()
     output = template('matrice.tpl', lines=lines)
