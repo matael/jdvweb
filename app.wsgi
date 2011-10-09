@@ -66,6 +66,26 @@ def mistake_404(code):
     """ serve all 404 errors """
     return template("404.tpl")
 
+@application.route('/change_state/:x#[0-9]+#/:y#[0-9]+#')
+def change_state(x,y):
+    """ Change state of a given cell"""
+    file = open(MATRIX_FILE, 'r')
+    lines = [[int(char) for char in line.rstrip()] for line in file.readlines()]
+    file.close()
+    x=int(x)
+    y=int(y)
+    cell = lines[y][x]
+    if cell==0:
+        lines[y][x]=1
+    else:
+        lines[y][x]=0
+    file = open(MATRIX_FILE,"w")
+    for i in lines:
+        for j in i:
+            file.write(str(j))
+        file.write('\n')
+    file.close()
+    return "OK"
 
 def main():
     run(application, host='localhost', port=8080)
