@@ -10,8 +10,75 @@ This app comes from Lucas Bourneuf and Mathieu Gaborit.
 
 Let's fork us at [GitHub](https://github.com/Matael/jdvweb)
 
+II - What ?
+-----------
 
-II - Requirements
-----------------
+Hu ?! You have never heard about the FAMOUS Conway's game of life ?
+
+Go to [wikipedia](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) !
+
+
+III - Requirements
+------------------
 
 This app is based on BottlePy. Please download and install it [here](http://bottlepy.org/docs/dev/tutorial.html#installation)
+
+IV - Run !!
+-----------
+
+Well... depending on which type of person you are, the most important step when you discover new software is either to read its code to understand how it works (and may be improve it \o/) or to run it (maybe take a few time later to read it...) !
+
+To the first category : feel free to read, modify, redistribute, do what you want  with that f***ing lines of source code !
+To the second category : 
+
+You can either run in locally or through a WSGI enabled wbe server.
+
+## Run it locally
+
+Just open `app.wsgi` then go to `main()` function (last function ini this file) and set the port and host you want. if you really don't want to open one of our file, you'll be able to access this app at [http://localhost:8080](http://localhost:8080).
+
+__Note :__ May be you'll have to modify at least one config var to fit with your installation
+
+    # file : app.wsgi
+    STATIC_FILES="/absolute/path/to/your/files/"
+
+To run properly the app, just type in console :
+
+    $ python create_matricefile.py
+    $ python app.wsgi
+
+Everytime you want to go to the next generation : launch the executable ;) switching between generations is its job !
+
+## Run it on a WSGI server
+
+You can either use a WSGI server to run this app. Setup apache correctly, in a vHost for example ;) :
+
+    <VirtualHost *:80>
+        ServerName example.org
+
+        WSGIDaemonProcess TheNameYouWant user=www-data group=www-data processes=1 threads=5
+        WSGIScriptAlias / /aboslute/path/to/app.wsgi
+
+        <Directory /absolute/path/to/app/folder>
+            WSGIProcessGroup TheNameYouWant
+            WSGIApplicationGroup %{GLOBAL}
+            Order deny,allow
+            Allow from all
+        </Directory>
+        <Directory /absolute/path/to/static/files/folder>
+            AllowOverride None
+            Options None
+            Order allow,deny
+            Allow from all
+        </Directory>
+    </VirtualHost>
+
+
+__Don't forget to modify your static files path in `app.wsgi` :__
+
+    STATIC_FILES = /absolute/path/to/static/files/folder
+
+
+Then, enable site and reload apache.
+
+maybe you should setup a cron task to run the executable from time to time.
