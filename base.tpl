@@ -4,10 +4,10 @@
         <title>Game Of Life Web</title>
         <meta charset="utf-8"/>
         <style type='text/css'>
-            tr { height:10px; }
+            tr { height:9px; }
             td { 
 		border: 1px #1c1c1c solid collapse;
-            	width:10px; 
+            	width:9px; 
             }
             .no_cell {background:#FFF}
             .has_cell {background:#000}
