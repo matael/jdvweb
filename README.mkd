@@ -33,30 +33,39 @@ To the second category :
 
 You can either run in locally or through a WSGI enabled wbe server.
 
-## Run it locally
+### Init
+
+Yeah ! Nice ! You seem have succeded in receiving our (awesome) code ! To initialize the matrix file, just run :
+
+    $ python create_matricefile.py
+
+Then, be careful with the user which runs the WSGi Daemon, he must be the owner of the `Matrice.JDV` file.
+
+### Run it locally
 
 Just open `app.wsgi` then go to `main()` function (last function ini this file) and set the port and host you want. if you really don't want to open one of our file, you'll be able to access this app at [http://localhost:8080](http://localhost:8080).
 
-__Note :__ May be you'll have to modify at least one config var to fit with your installation
+__Note :__ May be you'll have to modify at least three config vars to fit with your installation
 
     # file : app.wsgi
     STATIC_FILES="/absolute/path/to/your/files/"
+    MATRIX_FILE="/absolute/path/to/your/files/Matrice.JDV"
+    SAUVEGARDE_FILE="/absolute/path/to/your/files/Sauvegarde.JDV"
 
 To run properly the app, just type in console :
 
-    $ python create_matricefile.py
     $ python app.wsgi
 
 Everytime you want to go to the next generation : launch the executable ;) switching between generations is its job !
 
-## Run it on a WSGI server
+### Run it on a WSGI server
 
 You can either use a WSGI server to run this app. Setup apache correctly, in a vHost for example ;) :
 
     <VirtualHost *:80>
         ServerName example.org
 
-        WSGIDaemonProcess TheNameYouWant user=www-data group=www-data processes=1 threads=5
+        WSGIDaemonProcess TheNameYouWant user=your_user group=your_user processes=1 threads=5
         WSGIScriptAlias / /aboslute/path/to/app.wsgi
 
         <Directory /absolute/path/to/app/folder>
@@ -73,12 +82,18 @@ You can either use a WSGI server to run this app. Setup apache correctly, in a v
         </Directory>
     </VirtualHost>
 
+__Note :__ May be you'll have to modify at least three config vars to fit with your installation
 
-__Don't forget to modify your static files path in `app.wsgi` :__
-
-    STATIC_FILES = /absolute/path/to/static/files/folder
+    # file : app.wsgi
+    STATIC_FILES="/absolute/path/to/your/files/"
+    MATRIX_FILE="/absolute/path/to/your/files/Matrice.JDV"
+    SAUVEGARDE_FILE="/absolute/path/to/your/files/Sauvegarde.JDV"
 
 
 Then, enable site and reload apache.
 
-maybe you should setup a cron task to run the executable from time to time.
+### Cron Task
+
+To schedule some kind of f***ing crontab event, you should append this line to your cron file (to edit : `crontab -e`) :
+
+    @hourly /absolute/path/to/app/folder/backend_process
