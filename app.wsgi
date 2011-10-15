@@ -36,6 +36,7 @@ from bottle import\
 # Remember to use trailing slash
 STATIC_FILES = "/srv/simplelife/static/"
 MATRIX_FILE = '/srv/simplelife/Matrice.JDV'
+SAUVEGARDE_FILE = '/srv/simplelife/Sauvegarde.JDV'
 
 os.chdir(os.path.dirname(__file__))
 
