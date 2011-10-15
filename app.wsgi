@@ -80,16 +80,16 @@ def mistake_404(code):
 def change_state(x,y):
     """ Change state of a given cell"""
     file = open(MATRIX_FILE, 'r')
-    lines = [[int(char) for char in line.rstrip()] for line in file.readlines()]
+    lines = [[char for char in line.rstrip()] for line in file.readlines()]
     file.close()
     x=int(x)
     y=int(y)
     cell = lines[y][x]
-    if cell==0:
-        lines[y][x]=1
+    if cell=='0':
+        lines[y][x]='1'
     else:
-        lines[y][x]=0
-    file = open(MATRIX_FILE,"w")
+        lines[y][x]='0'
+    file = open(MATRIX_FILE,'w')
     for i in lines:
         for j in i:
             file.write(str(j))
