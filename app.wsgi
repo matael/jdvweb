@@ -56,6 +56,15 @@ def echo_file():
     output = template('matrice.tpl', lines=lines)
     return output
 
+@application.route('/previous')
+def echo_prev_file():
+    """ print saved file to html output """
+    file = open(SAUVEGARDE_FILE, 'r')
+    lines = [line.rstrip() for line in file.readlines()]
+    file.close()
+    output = template('matrice.tpl', lines=lines)
+    return output
+
 @application.route("/readme")
 def about():
     readme_file = codecs.open("README.mkd", 'r', encoding='utf8')
