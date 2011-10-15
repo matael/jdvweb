@@ -67,9 +67,14 @@ def echo_prev_file():
 
 @application.route("/readme")
 def about():
+    #    readme_file = codecs.open("README.mkd", 'r', encoding='utf8')
+    #    text = markdown(readme_file.read())
+    #    return template('readme.tpl', text=text)
     readme_file = codecs.open("README.mkd", 'r', encoding='utf8')
     text = markdown(readme_file.read())
-    return text
+    template = open("readme.tpl",'r')
+    return str(template.read()).format(text)
+
 
 @application.error(404)
 def mistake_404(code):
