@@ -31,7 +31,7 @@ Well... depending on which type of person you are, the most important step when 
 To the first category : feel free to read, modify, redistribute, do what you want  with that f***ing lines of source code !
 To the second category : 
 
-You can either run in locally or through a WSGI enabled wbe server.
+You can either run in locally or through a WSGI enabled web server.
 
 ### Init
 
@@ -97,3 +97,11 @@ Then, enable site and reload apache.
 To schedule some kind of f***ing crontab event, you should append this line to your cron file (to edit : `crontab -e`) :
 
     @hourly /absolute/path/to/app/folder/backend_process
+
+V - How does it works
+---------------------
+
+This awesome app has 2 parts.  
+ Of course (and if you read the begining of this file, you'd probably understood it), the front end works using the _Bottle Python Web framework_ which is a lightweight powerful WSGI framework written in Python.  
+All the backend of this app had been written in C++. The operations made follow the rules of the Conway's Game of Life. You can override the basic values modifying constants and `define` in the `c_src/main.h` file and then run `make all` to compile it.  
+Feel free to experiment !
