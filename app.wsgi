@@ -62,7 +62,7 @@ def echo_prev_file():
     file = open(SAUVEGARDE_FILE, 'r')
     lines = [line.rstrip() for line in file.readlines()]
     file.close()
-    output = template('matrice.tpl', lines=lines)
+    output = template('previous.tpl', lines=lines)
     return output
 
 @application.route("/readme")
