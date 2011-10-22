@@ -1,4 +1,4 @@
-        <table>
+        <table id="matrice_table">
             %i=0
             %for line in lines:
             %j=0

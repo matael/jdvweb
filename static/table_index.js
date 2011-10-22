@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    $("td").click(function (){
+    $("#matrice_table td").click(function (){
         if ($(this).hasClass('no_cell')){
             $(this).removeClass('no_cell').addClass('has_cell');
         } else {
