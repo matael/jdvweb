@@ -47,6 +47,7 @@ def server_static(filename):
     """ Serve Static files """
     return static_file(filename, root='/srv/simplelife/static/')
 
+@application.route('/current')
 @application.route('/')
 def echo_file():
     """ print file to html output """
