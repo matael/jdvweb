@@ -57,6 +57,12 @@ def echo_file():
     output = template('matrice.tpl', lines=lines)
     return output
 
+@application.route('/current.txt')
+def echo_txt():
+    """ print file to txt output """
+    return open(MATRIX_FILE, 'r').readlines()
+
+
 @application.route('/previous')
 def echo_prev_file():
     """ print saved file to html output """
@@ -65,6 +71,11 @@ def echo_prev_file():
     file.close()
     output = template('previous.tpl', lines=lines)
     return output
+
+@application.route('/previous.txt')
+def echo_prev_txt():
+    """ print file to txt output """
+    return open(SAUVEGARDE_FILE, 'r').readlines()
 
 @application.route("/readme")
 def about():

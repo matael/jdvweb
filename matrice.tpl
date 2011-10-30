@@ -18,4 +18,5 @@
             %i+=1
             %end
         </table>
+	<p class="text_version"><a href="current.txt">plain text version</a></p>
 %rebase base

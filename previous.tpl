@@ -14,4 +14,5 @@
             </tr>
             %end
         </table>
+	<p class="text_version"><a href="previous.txt">plain text version</a></p>
 %rebase base
