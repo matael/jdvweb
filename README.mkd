@@ -3,6 +3,12 @@ JdVWeb
 
 Web implementation of the famous _Game Of Life_.
 
+The Home page allows you to visualize the whole game universe.
+You can freely interact with it just by hitting the cells, you'll see the consequences on the next phase.
+Hourly, the Home page matrix gets copied in the Previous page matrix and then the first matrix gets filled with the next phase.
+So, 24 times a day, the game universe go  through a new life cycle, including all the modifications made by user during the previous phase.
+
+
 I - Who
 -------
 
